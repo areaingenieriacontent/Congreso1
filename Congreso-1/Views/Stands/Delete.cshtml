@@ -1,0 +1,80 @@
+﻿@model Congreso_1.Models.Stand
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Stand</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Stand_Type.StandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stand_Type.StandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnterpriseLogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnterpriseLogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnterpriseBanner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnterpriseBanner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandColorA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandColorA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandColorB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandColorB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandColorC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandColorC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Available)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

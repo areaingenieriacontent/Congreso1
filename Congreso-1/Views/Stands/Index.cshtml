@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Congreso_1.Models.Stand>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (ViewBag.Rol == "Admin")
+{
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create") | 
+        @Html.ActionLink("Asociar Stands", "Index", "Congress_Enterprise")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Stand_Type.StandName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnterpriseLogo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnterpriseBanner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StandColorA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StandColorB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StandColorC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Available)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stand_Type.StandName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnterpriseLogo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnterpriseBanner)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StandColorA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StandColorB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StandColorC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Available)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Stand_id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Stand_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Stand_id }) |
+                    @Html.ActionLink("Subir Recurso", "Index", "Digital_Resource", new { stand = item.Stand_id }, null) |
+                    @Html.ActionLink("Ir Stand", "CargarDetalles", "Vistastand", new { idstand = item.Stand_id }, null)
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else if (ViewBag.Rol == "Usuario")
+{
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script>
+    $(function () {
+        $('.columnasImagenes img:gt(0)').hide();
+        setInterval(function () {
+            $('.columnasImagenes :first-child').fadeOut(500).next('img').fadeIn(500).end().appendTo('.columnasImagenes');
+        }, 8700);
+    })
+    function SiguienteSlide() {
+        $('.columnasImagenes img:gt(0)').hide();
+            $('.columnasImagenes :first-child').fadeOut(500).next('img').fadeIn(500).end().appendTo('.columnasImagenes');
+    }
+
+
+    </script>
+    <style>
+        .columnasImagenes img {
+            position: absolute;
+        }
+    </style>
+
+    <div style="background: url(../../Archivos/fondopre-stands.png); background-size: 100%; height:auto; background-repeat:no-repeat; padding:50px">
+        <div class="columnasImagenes" style="">
+            @foreach (var item in Model)
+            {
+
+                <img src="@item.EnterpriseBanner" onclick="location.href='../Vistastand/CargarDetalles?idstand=@item.Stand_id'" />
+            }
+        </div>
+        <center>
+            <button onclick="SiguienteSlide()">Siguiente</button>
+        </center>
+    </div>
+}

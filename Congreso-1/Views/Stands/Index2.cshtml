@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Congreso_1.Models.Stand>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(function () {
+        $('.columnasImagenes img:gt(0)').hide();
+        setInterval(function () {
+            $('.columnasImagenes :first-child').fadeOut(500).next('img').fadeIn(500).end().appendTo('.columnasImagenes');
+        }, 8700);
+    })
+    function SiguienteSlide() {
+        $('.columnasImagenes img:gt(0)').hide();
+            $('.columnasImagenes :first-child').fadeOut(500).next('img').fadeIn(500).end().appendTo('.columnasImagenes');
+    }
+
+    
+</script>
+<style>
+    .columnasImagenes img{
+        position:absolute;
+    }
+</style>
+
+    <div style="background: url(../../Archivos/fondopre-stands.png); background-size: 100%; height:auto; background-repeat:no-repeat; padding:50px">
+        <div class="columnasImagenes" style="">
+                @foreach (var item in Model)
+                {
+
+                    <img src="@item.EnterpriseBanner" onclick="location.href='../Vistastand/CargarDetalles?idstand=@item.Stand_id'" />
+                }
+        </div>
+        <center>
+            <button onclick="SiguienteSlide()">Siguiente</button>
+        </center>
+    </div>
+

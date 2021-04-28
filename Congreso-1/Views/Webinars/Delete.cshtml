@@ -1,0 +1,80 @@
+﻿@model Congreso_1.Models.Webinar
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Webinar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Congress.CongressName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Congress.CongressName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarTheme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarTheme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarBannerPrincipal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarBannerPrincipal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarImagen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarImagen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarInitialDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarInitialDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.available)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

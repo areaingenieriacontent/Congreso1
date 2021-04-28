@@ -1,0 +1,58 @@
+﻿@model Congreso_1.Models.Congress
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Congress</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CongressName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CongressName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CongressTheme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CongressTheme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CongressInitialDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CongressInitialDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CongressFinalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CongressFinalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Available)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CongressId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Congreso_1.Models.Congress>
+
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressBanner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressTheme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressColorA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressColorB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressInitialDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CongressFinalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Available)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressBanner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressTheme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressColorA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressColorB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressInitialDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CongressFinalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Available)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CongressId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CongressId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CongressId })
+        </td>
+    </tr>
+}
+
+</table>

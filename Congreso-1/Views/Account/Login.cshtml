@@ -1,0 +1,76 @@
+﻿@using Congreso_1.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+
+<div class="container-fluid full-width">
+<div class="row no-gutter">
+    <div class="col-md-6 d-none d-md-flex bg-image"></div>
+    <div class="col-md-6 bg-congress">
+        <div class="login d-flex align-items-center py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="container h-100">
+                        <div class="d-flex justify-content-center h-100">
+                            <div class="user_card">
+                                <div class="d-flex justify-content-center">
+                                    <div class="brand_logo_container">
+                                        <img src="../Archivos/logo_login.png" class="brand_logo" alt="Logo">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center form_container">
+                                    @using (Html.BeginForm())
+                                    {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "Text-danger" })
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Email, new { placeholder = "Nombre de usuario", @class = "form-control input_user" })
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                        @*<input type="text" name="" class="form-control input_user" value="" placeholder="username">*@
+                                    </div>
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        </div>
+                                        @Html.PasswordFor(m => m.Password, new { placeholder = "Contraseña", @class = "form-control input_pass" })
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                        @*<input type="password" name="" class="form-control input_pass" value="" placeholder="password">*@
+                                    </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                                <label class="custom-control-label" for="customControlInline">Recuerdame</label>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center mt-3 login_container">
+                                            <input type="submit" value="Iniciar sesión" class="btn login_btn" />
+                                            @*<button type="button" name="button" class="btn login_btn">Login</button>*@
+                                        </div>
+                                    }
+                                </div>
+
+                                <div class="mt-4">
+                                    @*<div class="d-flex justify-content-center links">
+                                        Don't have an account? <a href="#" class="ml-2">Sign Up</a>
+                                    </div>*@
+                                    <div class="d-flex justify-content-center links">
+                                        <a href="#">¿Olvidaste tu contraseña?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

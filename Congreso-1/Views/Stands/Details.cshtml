@@ -1,0 +1,80 @@
+﻿@model Congreso_1.Models.Stand
+
+@{
+    ViewBag.Title = "Details";
+    var imagePath = Model.EnterpriseLogo;
+        var imagePath2 = Model.EnterpriseBanner;
+
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Stand</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Stand_Type.StandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stand_Type.StandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnterpriseLogo)
+        </dt>
+
+        <dd>
+            <img src="@imagePath" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnterpriseBanner)
+        </dt>
+
+        <dd>
+            <img src="@imagePath2" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandColorA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandColorA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandColorB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandColorB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandColorC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandColorC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Available)
+        </dd>
+
+    </dl>
+
+    <img
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Stand_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

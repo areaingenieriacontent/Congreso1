@@ -1,0 +1,42 @@
+﻿@model Congreso_1.Models.Congress_Enterprise
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Congress_Enterprise</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Congress.CongressName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Congress.CongressName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enterprise.EnterpriseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Enterprise.EnterpriseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stand.EnterpriseLogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stand.EnterpriseLogo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

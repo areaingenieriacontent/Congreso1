@@ -1,0 +1,42 @@
+﻿@model Congreso_1.Models.Stand_Type
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Stand_Type</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResourceQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResourceQuantity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StandType }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

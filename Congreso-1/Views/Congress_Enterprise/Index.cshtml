@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Congreso_1.Models.Congress_Enterprise>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Congress.CongressName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enterprise.EnterpriseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stand.StandName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Congress.CongressName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enterprise.EnterpriseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stand.StandName)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { idCongreso=item.CongressId, idStand=item.StandId, idEmpresa=item.EnterpriseId  }) 
+
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,77 @@
+﻿@model Congreso_1.Models.Webinar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Webinar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.DisplayFor(model => model.LinkWebinar)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Congress.CongressName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Congress.CongressName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarTheme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarTheme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarBannerPrincipal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarBannerPrincipal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarImagen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarImagen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarInitialDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarInitialDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.available)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WebinarId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

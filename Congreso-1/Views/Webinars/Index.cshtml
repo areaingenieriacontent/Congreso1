@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Congreso_1.Models.Webinar>
+
+@{
+    ViewBag.Title = "Index";
+}
+@if (ViewBag.Rol == "Admin")
+{
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Congress.CongressName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LinkWebinar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebinarTheme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebinarBannerPrincipal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebinarImagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebinarInitialDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebinarEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.available)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Congress.CongressName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LinkWebinar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WebinarTheme)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WebinarBannerPrincipal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WebinarImagen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WebinarInitialDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WebinarEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.available)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.WebinarId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.WebinarId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.WebinarId })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else if (ViewBag.Rol == "Usuario")
+{
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script>
+    $(function () {
+        $('.columnasImagenes img:gt(0)').hide();
+        setInterval(function () {
+            $('.columnasImagenes :first-child').fadeOut(500).next('img').fadeIn(500).end().appendTo('.columnasImagenes');
+        }, 8700);
+    })
+    function SiguienteSlide() {
+        $('.columnasImagenes img:gt(0)').hide();
+            $('.columnasImagenes :first-child').fadeOut(500).next('img').fadeIn(500).end().appendTo('.columnasImagenes');
+    }
+
+
+    </script>
+    <style>
+        .columnasImagenes img {
+            position: absolute;
+        }
+    </style>
+
+    <div style="background: url(../../Archivos/fondopre-stands.png); background-size: 100%; height:auto; background-repeat:no-repeat; padding:50px">
+        <div class="columnasImagenes" style="">
+            @foreach (var item in Model)
+            {
+
+                <img src="@item.WebinarBannerPrincipal" onclick="location.href='../VistaWebinar/CargarDetallesWebinar?idwebinar=@item.WebinarId'" />
+            }
+        </div>
+        <center>
+            <button onclick="SiguienteSlide()">Siguiente</button>
+        </center>
+    </div>
+}
